@@ -10,14 +10,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HikariCpConfig {
 
-    @Value("${DB_SAKILA_URL}")
-    private String dbSakilaUrl;
-    @Value("${DB_SAKILA_USER}")
-    private String dbSakilaUser;
-    @Value("${DB_SAKILA_PASS}")
-    private String dbSakilaPass;
-    @Value("${DB_SAKILA_DRIVER}")
-    private String dbSakilaDriver;
+    @Value("${DB_FABRIC_URL}")
+    private String dbFabricUrl;
+    @Value("${DB_FABRIC_USER}")
+    private String dbFabricUser;
+    @Value("${DB_FABRIC_PASS}")
+    private String dbFabricPass;
+    @Value("${DB_FABRIC_DRIVER}")
+    private String dbFabricDriver;
 
     @Bean
     public HikariDataSource hikariDataSource() {
@@ -27,10 +27,10 @@ public class HikariCpConfig {
         /**
          * Configurar propiedad de conexion a BD
          */
-        config.setJdbcUrl(dbSakilaUrl);
-        config.setUsername(dbSakilaUser);
-        config.setPassword(dbSakilaPass);
-        config.setDriverClassName(dbSakilaDriver);
+        config.setJdbcUrl(dbFabricUrl);
+        config.setUsername(dbFabricUser);
+        config.setPassword(dbFabricPass);
+        config.setDriverClassName(dbFabricDriver);
 
         /**
          * Configurar propiedades del pool de HikariCP

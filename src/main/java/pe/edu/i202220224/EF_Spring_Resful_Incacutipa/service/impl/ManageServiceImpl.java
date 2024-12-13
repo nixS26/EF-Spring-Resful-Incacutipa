@@ -1,6 +1,4 @@
 package pe.edu.i202220224.EF_Spring_Resful_Incacutipa.service.impl;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.i202220224.EF_Spring_Resful_Incacutipa.dto.CarDetailDto;
@@ -26,14 +24,12 @@ public class ManageServiceImpl implements ManageService {
         carRepository.findAll();
         Iterable<Car> iterable = carRepository.findAll();
         iterable.forEach(cars -> {
-            //armamos un objeto de tipo dto
             CarDto cardto = new CarDto(cars.getCarId(),
                     cars.getModel(),
                     cars.getYear(),
                     cars.getVin(),
                     cars.getLicensePlate(),
                     cars.getOwnerName());
-            //agregamos a la lisa el obj dto
             cards.add(cardto);
         });
         return cards;
@@ -54,9 +50,7 @@ public class ManageServiceImpl implements ManageService {
     //---------------------------DETAIL--------------------------------------------------
     @Override
     public Optional<CarDetailDto> getCarById(int id) throws Exception {
-        //CONSULTANDO UN CARRO POR ID
         Optional<Car> optional = carRepository.findById(id);
-        //map es como un conversor, si esat presente retornara un nuevo dto con data
         return optional.map(car -> new CarDetailDto(car.getCarId(), car.getMake(), car.getModel(),
                 car.getYear(), car.getVin(), car.getLicensePlate(),
                 car.getOwnerName(), car.getOwnerContact(), car.getPurchaseDate(),

@@ -39,15 +39,11 @@ public class ManageApi {
                 else
                     return new FindCarsReponse("04","Car List Not Found",cars);
 
-
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
             return new FindCarsReponse("99","Service Not Found",null);
         }
-
     }
 
     //****************************** DETAIL**********************************************
@@ -64,10 +60,8 @@ public class ManageApi {
                 } else {
                     return new FindCarByIdReponse("02", "User Not Found", null);
                 }
-
             } else
                 return new FindCarByIdReponse("04", "Parameter Not Found", null);
-
         } catch (Exception e) {
             e.printStackTrace();
             return new FindCarByIdReponse("99", "Service Not Found", null);
@@ -86,13 +80,11 @@ public class ManageApi {
             } else {
                 return new UpdateCarResponse("02", "User not found");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
             return new UpdateCarResponse("99", "Service not found");
 
         }
-
     }
 
     //********************************** DELETE *********************************************
