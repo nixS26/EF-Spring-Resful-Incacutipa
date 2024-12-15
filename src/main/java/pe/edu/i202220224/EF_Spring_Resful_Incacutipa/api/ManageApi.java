@@ -58,7 +58,7 @@ public class ManageApi {
                     CarDetailDto carDetailDto = optional.get();
                     return new FindCarByIdReponse("01", "", carDetailDto);
                 } else {
-                    return new FindCarByIdReponse("02", "User Not Found", null);
+                    return new FindCarByIdReponse("02", "Car Not Found", null);
                 }
             } else
                 return new FindCarByIdReponse("04", "Parameter Not Found", null);
@@ -78,7 +78,7 @@ public class ManageApi {
             if (manageService.updateCar(carDto)) {
                 return new UpdateCarResponse("01", "");
             } else {
-                return new UpdateCarResponse("02", "User not found");
+                return new UpdateCarResponse("02", "Car not found");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,8 +103,6 @@ public class ManageApi {
             } else {
                 return new DeleteCarByIdResponse("03", "Invalid parameter");
             }
-        } catch (NumberFormatException e) {
-            return new DeleteCarByIdResponse("04", "Invalid ID format");
         } catch (Exception e) {
             e.printStackTrace();
             return new DeleteCarByIdResponse("99", "Service error");
